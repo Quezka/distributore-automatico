@@ -1,3 +1,24 @@
 # Distributore Automatico
 ## Domashenko Arsenii | 4B Informatica | IIS "E. Alessandrini" - Montesilvano
-Applicazione web in HTML e JavaScript che simula un distributore automatico. Il progetto include l'analisi dei requisiti (SRS) e lo sviluppo di un'interfaccia per il login, la selezione di bevande e la gestione del pagamento con monete virtuali e resto. Sviluppato per scopi didattici con codice commentato e struttura modulare.
+
+Simulatore web di un distributore automatico di bevande realizzato in HTML e JavaScript. Il progetto copre l'intero ciclo di sviluppo, dall'analisi dei requisiti (SRS) alla realizzazione del frontend.
+## Funzionalità
+
+* Login: Sistema di accesso con validazione credenziali.
+* Selezione: Catalogo bevande con prezzi differenziati.
+* Pagamento: Gestione del credito tramite monete virtuali (0.20€, 0.50€, 1.00€).
+* Erogazione: Calcolo automatico del resto e feedback visivo.
+
+## Struttura del Progetto
+
+* docs/: Documentazione SRS e diagrammi dei casi d'uso.
+* src/: Codice sorgente (HTML, CSS, JS).
+
+## Requisiti Tecnici
+
+* Validazione username (solo lettere) e password (4 caratteri).
+* Logica di calcolo del resto in JavaScript.
+* Interfaccia interattiva e codice commentato.
+
+------------------------------
+Progetto didattico finalizzato alla gestione del processo software.
