@@ -11,8 +11,8 @@ Simulatore web di un distributore automatico di bevande realizzato in HTML e Jav
 
 ## Struttura del Progetto
 
-* docs/: Documentazione SRS e diagrammi dei casi d'uso.
-* src/: Codice sorgente (HTML, CSS, JS).
+* `docs/`: Documentazione SRS e diagrammi dei casi d'uso.
+* `src/`: Codice sorgente (HTML, CSS, JS).
 
 ## Requisiti Tecnici
 
