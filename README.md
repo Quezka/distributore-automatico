@@ -1,6 +1,6 @@
 # Distributore Automatico
 ## Domashenko Arsenii | 4B Informatica | IIS "E. Alessandrini" - Montesilvano
-
+https://quezka.github.io/distributore-automatico/
 Simulatore web di un distributore automatico di bevande realizzato in HTML e JavaScript. Il progetto copre l'intero ciclo di sviluppo, dall'analisi dei requisiti (SRS) alla realizzazione del frontend.
 ## Funzionalità
 
