@@ -27,10 +27,17 @@ body {
 	gap: 32px;
 }
 
-.nav-link {
+.nav-button {
 	color: white;
-	text-decoration: none;
+	background: none;
+	border: none;
 	font-size: 18px;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	padding: 10px 30px;
+	&:hover {
+		background-color: #5c5b5b;
+	}
 }
 
 .login-modal {
@@ -40,9 +47,10 @@ body {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: center;
+	transition: all 0.2s ease-in-out;
 }
 
 .close-button {
@@ -67,6 +75,7 @@ body {
 	padding: 100px;
 	border-radius: 5px;
 	width: 400px;
+	height: 300px;
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
@@ -120,4 +129,44 @@ body {
 	padding-left: 32px;
 	text-decoration: none;
 	color: white;
+}
+
+.main-content {
+	width: 95vw;
+	height: calc(90vh - 79px);
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+	justify-content: center;
+}
+
+.welcome-section {
+	display: block;
+	background-color: #e0e0e0;
+	padding: 20px;
+	border-radius: 5px;
+}
+
+.tech-view {
+	background-color: #e0e0e0;
+	padding: 20px;
+	border-radius: 5px;
+	width: 75%;
+	display: none;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.user-view {
+	background-color: #e0e0e0;
+	padding: 20px;
+	border-radius: 5px;
+	width: 75%;
+	display: none;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
 }
