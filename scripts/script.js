@@ -3,56 +3,61 @@ var dom = document;
 var favicon = dom.getElementById("favicon");
 var navLoginButton = dom.getElementById("nav-login");
 var loginModal = dom.getElementById("login-modal");
-var mainContent = dom.getElementById("main-content");
-var welcomeSection = dom.getElementById("welcome-section");
+var loginWelcome = dom.getElementById("login-welcome");
+
+var welcomeView = dom.getElementById("welcome-view");
 var techView = dom.getElementById("tech-view");
 var userView = dom.getElementById("user-view");
-var loginWelcome = dom.getElementById("login-welcome");
 
 var loginStatus = "out";
 
 function setFavicon(path) {
-	favicon.href = path + "?v=" + Date.now();
+	favicon.href = path;
+}
+
+function hideAllViews() {
+	welcomeView.style.display = "none";
+	techView.style.display = "none";
+	userView.style.display = "none";
 }
 
 function updateUI() {
+	hideAllViews();
+
 	switch (loginStatus) {
 		case "tech":
 			navLoginButton.textContent = "Logout";
-			welcomeSection.style.display = "none";
-			techView.style.display = "flex";
-			userView.style.display = "none";
+			techView.style.display = "block";
 			document.title = "Tecnico | Distributore";
 			setFavicon("assets/imgs/main-favicon.ico");
 			break;
 
 		case "user":
 			navLoginButton.textContent = "Logout";
-			welcomeSection.style.display = "none";
-			techView.style.display = "none";
-			userView.style.display = "flex";
+			userView.style.display = "block";
 			document.title = "Utente | Distributore";
 			setFavicon("assets/imgs/main-favicon.ico");
 			break;
 
 		default:
 			navLoginButton.textContent = "Login";
-			welcomeSection.style.display = "block";
-			techView.style.display = "none";
-			userView.style.display = "none";
+			welcomeView.style.display = "block";
+			loginWelcome.textContent = "";
 			document.title = "Benvenuto! | Distributore";
 			setFavicon("assets/imgs/main-favicon.ico");
 	}
 }
 
 function closeLogin() {
-	loginModal.style.display = "none";
+	loginModal.classList.remove("show");
+	dom.title = "Benvenuto! | Distributore";
 	setFavicon("assets/imgs/main-favicon.ico");
 }
 
 function login() {
 	if (loginStatus === "out") {
-		loginModal.style.display = "flex";
+		loginModal.classList.add("show");
+		dom.title = "Login | Distributore";
 		setFavicon("assets/imgs/login-favicon.ico");
 	} else {
 		loginStatus = "out";
@@ -66,18 +71,18 @@ function validateLogin(event) {
 	var username = dom.getElementById("username").value.trim();
 	var password = dom.getElementById("password").value.trim();
 
-	var usernamePattern = /^[A-Za-z0-9]+$/;
+	var usernamePattern = /^[A-Za-z]{2,}$/;
 	var passwordPattern = /^\d{4}$/;
 
 	if (username === "admin" && password === "admin") {
 		loginStatus = "tech";
-		loginModal.style.display = "none";
+		loginModal.classList.remove("show");
 		loginWelcome.textContent = "Benvenuto, Tecnico!";
 		updateUI();
 		return;
 	}
 
-	if (!usernamePattern.test(username)) {
+	if (!usernamePattern.test(username) || username.toLowerCase() === "admin") {
 		console.log("Username non valido");
 		return;
 	}
@@ -88,7 +93,7 @@ function validateLogin(event) {
 	}
 
 	loginStatus = "user";
-	loginModal.style.display = "none";
+	loginModal.classList.remove("show");
 	loginWelcome.textContent = `Benvenuto, ${username}!`;
 	updateUI();
 }

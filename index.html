@@ -8,52 +8,75 @@
     content="Distributore Automatico - Un progetto di un distributore automatico con funzionalità avanzate.">
   <meta name="keywords" content="distributore automatico, vending machine, progetto, funzionalità avanzate">
   <meta name="author" content="Quezka">
-  <meta name="version" content="0.0.3">
+  <meta name="version" content="0.1.0">
+
   <link id="favicon" rel="icon" href="assets/imgs/main-favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./style/style.css">
   <title></title>
 </head>
 
 <body>
+
   <header class="header">
-    <h1>Distributore Automatico</h1>
+    <div class="site-ident">
+      <img class="site-logo" src="assets/imgs/main-favicon.svg" alt="Logo Distributore Automatico">
+      <h1>Distributore Automatico</h1>
+    </div>
+
     <ul class="nav">
       <li><span id="login-welcome" class="nav-welcome"></span></li>
       <li><button class="nav-button">Info</button></li>
       <li><button class="nav-button" id="nav-login" onclick="login()">Login</button></li>
     </ul>
   </header>
+
   <div id="login-modal" class="login-modal">
     <div class="login-content">
       <button id="close-button" class="close-button" onclick="closeLogin()">&times;</button>
+
       <h2>Login</h2>
+
       <form class="login-form" id="login-form">
         <div class="form-group">
           <label for="username">Username:</label>
           <input type="text" id="username" name="username" required>
         </div>
+
         <div class="form-group">
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" required>
         </div>
+
         <button class="login-button" type="submit" onclick="validateLogin(event)">Login</button>
       </form>
+
+      <span class="error-span"></span>
     </div>
   </div>
+
   <main id="main-content" class="main-content">
-    <div id="welcome-section" class="welcome-section">
-      <h2>Benvenuto nel Distributore Automatico</h2>
-      <p>Questo è un progetto di un distributore automatico con funzionalità avanzate.</p>
-      <h2>Effettua il Login per iniziare.</h2>
+
+    <div id="view-box" class="view-box">
+
+      <div id="welcome-view" class="view-section">
+        <h2>Benvenuto nel Distributore Automatico</h2>
+        <p>Questo è un progetto di un distributore automatico con funzionalità avanzate.</p>
+        <h2>Effettua il Login per iniziare.</h2>
+      </div>
+
+      <div id="tech-view" class="view-section" style="display:none;">
+        <h2>Dashboard Tecnico</h2>
+      </div>
+
+      <div id="user-view" class="view-section" style="display:none;">
+        <h2>Distributore Automatico</h2>
+      </div>
+
     </div>
-    <div id="tech-view" class="tech-view">
-      <h2>Dashboard Tecnico</h2>
-    </div>
-    <div id="user-view" class="user-view">
-      <h2>Distributore Automatico</h2>
-    </div>
+
   </main>
+
+  <script src="./scripts/script.js"></script>
 </body>
-<script src="./scripts/script.js"></script>
 
 </html>
