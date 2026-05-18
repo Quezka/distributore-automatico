@@ -10,11 +10,42 @@
   <meta name="author" content="Quezka">
   <meta name="version" content="0.0.1">
   <link id="favicon" rel="icon" href="" type="image/x-icon">
+  <link rel="stylesheet" href="./style/style.css">
   <title>Distributore Automatico</title>
 </head>
 
 <body>
-  <h1>Distributore Automatico</h1>
+  <header class="header">
+    <h1>Distributore Automatico</h1>
+    <ul class="nav">
+      <li><a class="nav-link" href="#">Home</a></li>
+      <li><a class="nav-link" href="#">Info</a></li>
+      <li><a class="nav-link" id="nav-login" href="#">Login</a></li>
+    </ul>
+  </header>
+  <main>
+    <div class="login-modal">
+      <div class="login-content">
+        <button class="close-button">&times;</button>
+        <h2>Login</h2>
+        <form class="login-form" id="login-form">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <button class="login-button" type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+    <section>
+      <h2>Benvenuto nel Distributore Automatico</h2>
+      <p>Questo è un progetto di un distributore automatico con funzionalità avanzate.</p>
+    </section>
+  </main>
 </body>
 <script src="./scripts/script.js"></script>
 
