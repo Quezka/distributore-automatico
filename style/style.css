@@ -6,6 +6,8 @@ html,
 body {
 	margin: 0;
 	padding: 0;
+	width: 100%;
+	height: 100%;
 }
 
 h2 {
@@ -64,7 +66,8 @@ h2 {
 	position: fixed;
 	inset: 0;
 	background: rgba(0, 0, 0, 0.45);
-
+	max-width: 100vw;
+	max-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -174,22 +177,23 @@ h2 {
 }
 
 .main-content {
-	width: 95vw;
-	height: calc(90vh - 79px);
-	padding: 30px;
+	/*width: 100vw;*/
+	height: calc(100vh - 80px);
 
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	justify-content: center;
 }
 
 .view-box {
 	background-color: #e0e0e0;
-	padding: 30px;
 	border-radius: 12px;
 	width: 75%;
+	/*margin-top: 40px;*/
 
+	margin: 0 auto;
+
+	padding-bottom: 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -201,11 +205,18 @@ h2 {
 	text-align: center;
 }
 
-@media (max-width: 900px) {
-	.header {
-		padding: 0 15px;
-	}
+.machine {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
 
+.machine-image {
+	max-width: 40%;
+	height: auto;
+}
+
+@media (width <= 1024px) {
 	.nav {
 		gap: 24px;
 	}
@@ -220,21 +231,18 @@ h2 {
 		font-size: 28px;
 	}
 
-	.main-content {
-		padding: 20px;
-	}
-
 	.view-box {
+		position: relative;
 		width: 90%;
 	}
 }
 
-@media (max-width: 600px) {
+@media (width <= 768px) {
 	.header {
 		flex-direction: column;
 		gap: 10px;
-		padding: 15px;
 		text-align: center;
+		padding-bottom: 10px;
 	}
 
 	.nav {
@@ -261,14 +269,13 @@ h2 {
 		padding: 8px;
 	}
 
-	.main-content {
-		padding: 10px;
-		height: auto;
-	}
-
 	.view-box {
 		width: 100%;
-		padding: 15px;
+		height: 100%;
+	}
+
+	.machine-image {
+		max-width: 55%;
 	}
 
 	h2 {
@@ -276,7 +283,7 @@ h2 {
 	}
 }
 
-@media (max-width: 400px) {
+@media (width <= 375px) {
 	.login-content {
 		padding: 30px 20px;
 	}
@@ -290,6 +297,14 @@ h2 {
 	.nav-button {
 		font-size: 14px;
 		padding: 6px 16px;
+	}
+
+	.view-box {
+		height: 100%;
+	}
+
+	.machine-image {
+		max-width: 80%;
 	}
 
 	h2 {
