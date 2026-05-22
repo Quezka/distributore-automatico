@@ -206,9 +206,33 @@ h2 {
 }
 
 .machine {
-	width: 100%;
 	display: flex;
-	justify-content: center;
+	padding: 0 80px;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+
+.wallet-icon {
+	width: 240px;
+	height: 240px;
+	cursor: pointer;
+	transition: transform 0.12s ease-in-out;
+}
+
+/* first tilt */
+.wallet-icon:hover {
+	transform: rotate(4deg) scale(1.03);
+}
+
+/* counter-tilt when pressing */
+.wallet-icon:hover:active {
+	transform: rotate(-6deg) scale(1.02);
+}
+
+/* optional: keyboard wobble */
+.wallet-icon:focus-visible {
+	transform: rotate(3deg) scale(1.04);
 }
 
 .machine-image {
