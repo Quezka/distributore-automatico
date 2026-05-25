@@ -8,7 +8,7 @@
     content="Distributore Automatico - Un progetto di un distributore automatico con funzionalità avanzate.">
   <meta name="keywords" content="distributore automatico, vending machine, progetto, funzionalità avanzate">
   <meta name="author" content="Quezka">
-  <meta name="version" content="0.1.2">
+  <meta name="version" content="1.0.0">
 
   <link id="favicon" rel="icon" href="assets/imgs/main-favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./style/style.css">
@@ -30,9 +30,9 @@
     </ul>
   </header>
 
-  <div id="login-modal" class="login-modal">
-    <div class="login-content">
-      <button id="close-button" class="close-button" onclick="closeLogin()">&times;</button>
+  <div id="login-modal" class="modal login-modal">
+    <div class="modal-content login-content">
+      <button id="close-button" class="modal-close close-button" onclick="closeLogin()">&times;</button>
 
       <h2>Login</h2>
 
@@ -54,6 +54,14 @@
     </div>
   </div>
 
+  <div id="info-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('info-modal')">&times;</button>
+      <h2>Info</h2>
+      <p>Questo è un progetto di un distributore automatico con funzionalità avanzate.</p>
+    </div>
+  </div>
+
   <main id="main-content" class="main-content">
 
     <div id="view-box" class="view-box">
@@ -71,7 +79,9 @@
       <div id="user-view" class="view-section" style="display:none;">
         <h2>Distributore Automatico</h2>
         <div class="machine">
-          <img class="wallet-icon" src="assets/imgs/wallet.svg" alt="Distributore Automatico">
+          <button id="wallet-button" class="wallet-button">
+            <img class="wallet-icon" src="assets/imgs/wallet.svg" alt="Portafoglio">
+          </button>
           <img class="machine-image" src="assets/imgs/distributore.png" alt="Distributore Automatico">
         </div>
       </div>

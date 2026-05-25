@@ -1,4 +1,5 @@
 * {
+	box-sizing: border-box;
 	font-family: "Ubuntu", sans-serif;
 }
 
@@ -62,7 +63,8 @@ h2 {
 	font-size: 18px;
 }
 
-.login-modal {
+/* Generic Modal Base */
+.modal {
 	position: fixed;
 	inset: 0;
 	background: rgba(0, 0, 0, 0.45);
@@ -75,25 +77,25 @@ h2 {
 	opacity: 0;
 	pointer-events: none;
 	transform: scale(1.05);
-
+	z-index: 1000;
 	transition:
 		opacity 0.25s ease,
 		transform 0.25s ease;
 }
 
-.login-modal.show {
+.modal.show {
 	opacity: 1;
 	pointer-events: auto;
 	transform: scale(1);
 }
 
-.login-content {
+.modal-content {
 	position: relative;
 	background-color: white;
 	padding: 100px;
 	border-radius: 20px;
-	width: 400px;
-	height: 300px;
+	width: 30%;
+	height: auto;
 
 	display: flex;
 	flex-direction: column;
@@ -106,12 +108,12 @@ h2 {
 		transform 0.25s ease;
 }
 
-.login-modal.show .login-content {
+.modal.show .modal-content {
 	opacity: 1;
 	transform: translateY(0);
 }
 
-.close-button {
+.modal-close {
 	position: absolute;
 	top: 20px;
 	right: 20px;
@@ -133,7 +135,7 @@ h2 {
 	transition: all 0.2s ease-in-out;
 }
 
-.close-button:hover {
+.modal-close:hover {
 	background-color: darkred;
 }
 
@@ -210,28 +212,37 @@ h2 {
 	padding: 0 80px;
 	justify-content: space-between;
 	align-items: center;
-	gap: 20px;
+	/*gap: 20px;*/
 }
 
 .wallet-icon {
-	width: 240px;
-	height: 240px;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.wallet-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 20%;
+	height: 20%;
+	padding: 0;
+	border: none;
+	background: none;
 	cursor: pointer;
 	transition: transform 0.12s ease-in-out;
 }
 
-/* first tilt */
-.wallet-icon:hover {
+.wallet-button:hover {
 	transform: rotate(4deg) scale(1.03);
 }
 
-/* counter-tilt when pressing */
-.wallet-icon:hover:active {
+.wallet-button:hover:active {
 	transform: rotate(-6deg) scale(1.02);
 }
 
-/* optional: keyboard wobble */
-.wallet-icon:focus-visible {
+.wallet-button:focus-visible {
 	transform: rotate(3deg) scale(1.04);
 }
 
@@ -240,7 +251,7 @@ h2 {
 	height: auto;
 }
 
-@media (width <= 1024px) {
+@media (max-width: 1024px) {
 	.nav {
 		gap: 24px;
 	}
@@ -251,17 +262,31 @@ h2 {
 		padding: 60px 40px;
 	}
 
+	.modal-content {
+		width: 350px;
+		height: auto;
+		padding: 60px 40px;
+	}
+
 	h2 {
 		font-size: 28px;
 	}
 
 	.view-box {
-		position: relative;
 		width: 90%;
+	}
+
+	.wallet-icon {
+		width: 20%;
+		height: 20%;
+	}
+
+	.machine {
+		gap: 20px;
 	}
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
 	.header {
 		flex-direction: column;
 		gap: 10px;
@@ -285,6 +310,13 @@ h2 {
 		border-radius: 12px;
 	}
 
+	.modal-content {
+		width: 90%;
+		height: auto;
+		padding: 40px 25px;
+		border-radius: 12px;
+	}
+
 	.login-form {
 		width: 100%;
 	}
@@ -298,6 +330,16 @@ h2 {
 		height: 100%;
 	}
 
+	.wallet-icon {
+		width: 25%;
+		height: 25%;
+	}
+
+	.machine {
+		flex-direction: column-reverse;
+		padding: 0 20px;
+	}
+
 	.machine-image {
 		max-width: 55%;
 	}
@@ -307,12 +349,22 @@ h2 {
 	}
 }
 
-@media (width <= 375px) {
+@media (max-width: 375px) {
 	.login-content {
 		padding: 30px 20px;
 	}
 
+	.modal-content {
+		padding: 30px 20px;
+	}
+
 	.close-button {
+		top: 10px;
+		right: 10px;
+		font-size: 20px;
+	}
+
+	.modal-close {
 		top: 10px;
 		right: 10px;
 		font-size: 20px;
@@ -325,6 +377,11 @@ h2 {
 
 	.view-box {
 		height: 100%;
+	}
+
+	.wallet-button {
+		width: 30%;
+		height: 30%;
 	}
 
 	.machine-image {
