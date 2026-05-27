@@ -11,9 +11,8 @@ var userView = dom.getElementById("user-view");
 
 var loginStatus = "out";
 var credit = 0;
-var earnings = 0; // Guadagno totale accumulato nella macchina
+var earnings = 0;
 
-// Dizionario quantità per tipo di bevanda (chiave: testo di `alt` in minuscolo)
 var drinkStock = {
 	"coca cola": 5,
 	fanta: 5,
@@ -23,18 +22,12 @@ var drinkStock = {
 	"red bull": 3,
 };
 
-// Configurazione: mappa valori delle monete e prezzi delle bevande in JS
-// Compila questi array nell'ordine in cui gli elementi appaiono nel DOM.
-// Lascia vuoto per usare i valori presenti nell'HTML o estratti dal testo.
-// Mappe definitive: rimuovi i valori dall'HTML e mantienili qui
-// Dizionario valori per monete (chiave: testo di `alt` in minuscolo)
 var coinValueMap = {
 	"moneta 1 euro": 1.0,
 	"moneta 50 cent": 0.5,
 	"moneta 20 cent": 0.2,
 };
 
-// Dizionario prezzi per tipo di bevanda (chiave: testo di `alt` in minuscolo)
 var drinkPriceMap = {
 	"coca cola": 0.9,
 	fanta: 0.9,
@@ -172,10 +165,8 @@ function purchaseDrink(key, price) {
 	}
 
 	credit -= price;
-	// Guadagno aumenta del prezzo della bevanda
 	earnings += price;
 
-	// Aggiorna scorte
 	if (typeof drinkStock[key] === "number") {
 		drinkStock[key] = Math.max(0, drinkStock[key] - 1);
 	}
@@ -184,8 +175,6 @@ function purchaseDrink(key, price) {
 	updateChangeDisplay(credit);
 	updateTechUI();
 }
-
-// Helper complesso rimosso: i fallback ora sono semplici parse inline
 
 function initCoinButtons() {
 	var coins = dom.querySelectorAll("#coin-column .coin");
@@ -236,7 +225,6 @@ function initDrinkButtons() {
 	});
 }
 
-// --- Pannello tecnico: funzioni di gestione scorte e guadagni ---
 function formatCurrency(v) {
 	return v.toFixed(2) + " €";
 }
@@ -248,7 +236,6 @@ function updateTechUI() {
 	var stockList = dom.getElementById("stock-list");
 	if (!stockList) return;
 
-	// Ricrea la lista delle scorte dinamicamente
 	stockList.innerHTML = "";
 	Object.keys(drinkPriceMap).forEach(function (rawKey) {
 		var key = normalizeKey(rawKey);
@@ -256,6 +243,12 @@ function updateTechUI() {
 
 		var row = dom.createElement("div");
 		row.className = "stock-row";
+
+		var rowLeft = dom.createElement("div");
+		rowLeft.className = "stock-left";
+
+		var rowRight = dom.createElement("div");
+		rowRight.className = "stock-right";
 
 		var label = dom.createElement("span");
 		label.className = "stock-label";
@@ -280,10 +273,13 @@ function updateTechUI() {
 			restockDrink(key, add);
 		});
 
-		row.appendChild(label);
-		row.appendChild(qtySpan);
-		row.appendChild(input);
-		row.appendChild(btn);
+		rowLeft.appendChild(label);
+		rowLeft.appendChild(qtySpan);
+		rowRight.appendChild(input);
+		rowRight.appendChild(btn);
+
+		row.appendChild(rowLeft);
+		row.appendChild(rowRight);
 
 		stockList.appendChild(row);
 	});
