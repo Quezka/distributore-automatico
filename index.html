@@ -8,7 +8,7 @@
     content="Distributore Automatico - Un progetto di un distributore automatico con funzionalità avanzate.">
   <meta name="keywords" content="distributore automatico, vending machine, progetto, funzionalità avanzate">
   <meta name="author" content="Quezka">
-  <meta name="version" content="1.0.0">
+  <meta name="version" content="1.1.0">
 
   <link id="favicon" rel="icon" href="assets/imgs/main-favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./style/style.css">
@@ -74,15 +74,40 @@
 
       <div id="tech-view" class="view-section" style="display:none;">
         <h2>Dashboard Tecnico</h2>
+        <div id="tech-panel" class="tech-panel">
+          <div class="earnings-row">Guadagni macchina: <span id="earnings-value">0.00 €</span>
+            <button id="withdraw-button" class="withdraw-button">Ritira</button>
+          </div>
+
+          <h3>Scorte bevande</h3>
+          <div id="stock-list" class="stock-list"></div>
+        </div>
       </div>
 
       <div id="user-view" class="view-section" style="display:none;">
         <h2>Distributore Automatico</h2>
+        <div class="credit-box">Credito inserito: <span id="credit-value">0.00 €</span></div>
+        <div class="change-box">Resto uscito: <span id="change-value">0.00 €</span></div>
         <div class="machine">
           <button id="wallet-button" class="wallet-button">
             <img class="wallet-icon" src="assets/imgs/wallet.svg" alt="Portafoglio">
           </button>
-          <img class="machine-image" src="assets/imgs/distributore.png" alt="Distributore Automatico">
+          <div id="coin-column" class="coin-column">
+            <img class="coin" src="assets/imgs/1-euro.png" alt="Moneta 1 euro">
+            <img class="coin" src="assets/imgs/50-cent.png" alt="Moneta 50 cent">
+            <img class="coin" src="assets/imgs/20-cent.png" alt="Moneta 20 cent">
+          </div>
+          <div class="machine-panel">
+            <div class="drink-grid">
+              <img class="drink-slot" src="assets/imgs/coke.png" alt="Coca Cola">
+              <img class="drink-slot" src="assets/imgs/fanta.png" alt="Fanta">
+              <img class="drink-slot" src="assets/imgs/acqua.png" alt="Acqua">
+              <img class="drink-slot" src="assets/imgs/sprite.png" alt="Sprite">
+              <img class="drink-slot" src="assets/imgs/estathe.png" alt="The">
+              <img class="drink-slot" src="assets/imgs/redbull.png" alt="Red Bull">
+            </div>
+            <img class="machine-image" src="assets/imgs/distributore.png" alt="Distributore Automatico">
+          </div>
         </div>
       </div>
 
